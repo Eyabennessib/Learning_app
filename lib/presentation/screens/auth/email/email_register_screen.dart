@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:dummy_app/core/themes.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../l10n/app_localizations.dart';
-import 'package:dummy_app/core/routers.dart';
-import 'package:dummy_app/core/services/local-storage/local_storage.dart';
+import 'package:dummy_app/core/routers/page-routers/routers.dart';
+import 'package:dummy_app/core/services/local-storage/user-id/local_storage.dart';
 
 class EmailRegisterScreen extends StatefulWidget{
   const EmailRegisterScreen({super.key});

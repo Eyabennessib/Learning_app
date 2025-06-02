@@ -1,5 +1,5 @@
 import 'dart:developer';
-import 'package:dummy_app/core/routers.dart';
+import 'package:dummy_app/core/routers/page-routers/routers.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:dummy_app/core/themes.dart';

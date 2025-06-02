@@ -1,9 +1,14 @@
+import 'package:dummy_app/core/routers/page-routers/routers.dart';
+import 'package:dummy_app/core/services/local-storage/opened-page/local_storage.dart';
+import 'package:dummy_app/presentation/screens/assessment/analyze_assessment.dart';
+import 'package:dummy_app/presentation/screens/assessment/assessments/q2/assessment_task_screen.dart';
 import 'package:dummy_app/presentation/screens/assessment/start_assesment.dart';
 import 'package:dummy_app/presentation/screens/home_screen.dart';
 import 'package:dummy_app/presentation/screens/auth/options/login_option_screen.dart';
 import 'package:dummy_app/presentation/screens/user/profile/fill_profile_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'presentation/screens/splash_screen.dart';
 import 'presentation/screens/auth/email/email_register_screen.dart';
 import 'presentation/screens/auth/email/email_login_screen.dart';
@@ -15,6 +20,7 @@ import 'presentation/screens/auth/options/register_option_screen.dart';
 
 class MyApp extends StatefulWidget{
   const MyApp({super.key});
+
 
   @override
   State<MyApp> createState()=> _MyApp();
@@ -33,10 +39,24 @@ class _MyApp extends State<MyApp>{
     });
   }
 
+  String _initialRoute = '/loading';
+
+  Future<void> _loadInitialRoute() async {
+    final lastRoute = await getCurrentRoute() ?? '/home';
+
+    if (!mounted) return; // prevent calling setState after dispose
+    setState(() {
+      _initialRoute = lastRoute;
+    });
+  }
+
 
   @override
   Widget build(BuildContext context){
+
+
     return MaterialApp(
+
       theme: ThemeData(
         textTheme: GoogleFonts.dmSansTextTheme()
       ),
@@ -45,7 +65,7 @@ class _MyApp extends State<MyApp>{
       supportedLocales: AppLocalizations.supportedLocales,
       locale: _locale,
       home: Scaffold(
-        body: StartAssesmentScreen() // AuthCheck() FillProfileScreen()
+        body: AnalyzeAssessmentScreen() //    // StartAssesmentScreen() AuthCheck()  AssessmentScreen()
       ),
 
     );

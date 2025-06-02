@@ -1,4 +1,4 @@
-import 'package:dummy_app/core/routers.dart';
+import 'package:dummy_app/core/routers/page-routers/routers.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/themes.dart';
@@ -18,7 +18,7 @@ class _IntroScreen extends State<IntroScreen>{
     super.initState();
     // SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
     Future.delayed(const Duration(seconds: 3), (){
-      goToAssessment(context);
+      goToStartAssessment(context);
     });
   }
 
@@ -39,7 +39,7 @@ class _IntroScreen extends State<IntroScreen>{
                     // padding: const EdgeInsets.only(left: 15.0, right: 15.0),
                     margin: const EdgeInsets.only(top: 80.0),
                     child: Image.asset(
-                      'assets/mascot-transparent.png',
+                      'assets/mascot/mascot-transparent.png',
                       width: MediaQuery.of(context).size.width * 0.1,  // 80% of screen width
                       height: MediaQuery.of(context).size.height * 0.1,
                     ),

@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:dummy_app/core/routers.dart';
+import 'package:dummy_app/core/routers/page-routers/routers.dart';
 import 'package:dummy_app/presentation/screens/auth/options/login_option_screen.dart';
 import 'package:dummy_app/presentation/screens/auth/phone/phone_login_screen.dart';
 import 'package:dummy_app/presentation/screens/auth/options/register_option_screen.dart';

@@ -2,8 +2,8 @@ import 'dart:developer';
 import 'package:dummy_app/core/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:dummy_app/core/themes.dart';
-import 'package:dummy_app/core/routers.dart';
-import 'package:dummy_app/core/services/local-storage/local_storage.dart';
+import 'package:dummy_app/core/routers/page-routers/routers.dart';
+import 'package:dummy_app/core/services/local-storage/user-id/local_storage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 // class EmailLoginScreen extends StatefulWidget{
@@ -14,8 +14,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 //
 // }
 
-
 class StartAssesmentScreen extends StatelessWidget {
+  const StartAssesmentScreen({super.key});
   // final _auth = AuthService();
   // final _localStorage = LocalStorage();
 
@@ -36,7 +36,7 @@ class StartAssesmentScreen extends StatelessWidget {
                   MediaQuery.of(context).size.height * 0.01,
                 ),
                 child: GestureDetector(
-                  onTap: () => Navigator.pop(context),
+                  onTap: () => goToFillProfile(context),
                   child: Image.asset(
                     'assets/images/back-btn.png',
                     width: 150,
@@ -60,10 +60,10 @@ class StartAssesmentScreen extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 20.0),
                 alignment: Alignment.center,
                 child: Text(
-                  "Before we start our adventure, We will first test how well you are!",
+                  "Hey adventurer before we start our journey, lets test your knowledge!",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 16,
                     color: AppColors.mainTextColor,
                   ),
                 ),
@@ -83,10 +83,11 @@ class StartAssesmentScreen extends StatelessWidget {
 
               Container(
                 width: MediaQuery.of(context).size.width * 0.7,
-                margin: const EdgeInsets.only(top: 80.0),
+                margin: const EdgeInsets.only(top: 50.0),
                 child: ElevatedButton(
 
                   onPressed: () async {
+                    goToA1Intro(context);
                     // _formKey.currentState!.validate();
 
                     // MyApp.setLocale(context, Locale('fr'));

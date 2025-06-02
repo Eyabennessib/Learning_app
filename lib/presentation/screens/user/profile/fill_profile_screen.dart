@@ -1,9 +1,9 @@
-import 'package:dummy_app/core/routers.dart';
+import 'package:dummy_app/core/routers/page-routers/routers.dart';
 import 'package:dummy_app/core/services/collections/user_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:dummy_app/core/themes.dart';
 import 'dart:developer';
-import 'package:dummy_app/core/services/local-storage/local_storage.dart';
+import 'package:dummy_app/core/services/local-storage/user-id/local_storage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:dummy_app/data/models/user_model.dart';
 
@@ -84,7 +84,9 @@ class _FillProfileScreen extends State<FillProfileScreen>{
       nameController.clear();
       ageController.clear();
 
-      goToStartAssesment(context);
+      // goToStartAssesment(context);
+
+      goToIntro(context);
 
       // goToIntro(context);
 
@@ -360,8 +362,6 @@ class _FillProfileScreen extends State<FillProfileScreen>{
                           ),
                       ),
                     ),
-
-
 
                   ],
                 ),

@@ -1,4 +1,4 @@
-import 'package:dummy_app/core/routers.dart';
+import 'package:dummy_app/core/routers/page-routers/routers.dart';
 import 'package:dummy_app/core/services/auth/auth_service.dart';
 import 'package:dummy_app/core/themes.dart';
 import 'package:dummy_app/presentation/widgets/navigation/navigation.dart';

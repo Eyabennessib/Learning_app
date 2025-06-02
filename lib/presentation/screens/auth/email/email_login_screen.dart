@@ -2,8 +2,8 @@ import 'dart:developer';
 import 'package:dummy_app/core/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:dummy_app/core/themes.dart';
-import 'package:dummy_app/core/routers.dart';
-import 'package:dummy_app/core/services/local-storage/local_storage.dart';
+import 'package:dummy_app/core/routers/page-routers/routers.dart';
+import 'package:dummy_app/core/services/local-storage/user-id/local_storage.dart';
 
 class EmailLoginScreen extends StatefulWidget{
   const EmailLoginScreen({super.key});
