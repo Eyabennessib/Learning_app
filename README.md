@@ -1,2 +1,2 @@
-# Learning_app
-mvp for learning app
+# Nmimes_dev
+This is the developement branch of Nmimes
