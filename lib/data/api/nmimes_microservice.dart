@@ -79,7 +79,7 @@ class AnalyseResponse {
 
 
 class ApiService {
-  final String baseUrl = 'http://192.168.1.7:8001/';
+  final String baseUrl = 'https://nmimes-microservice.vercel.app/'; //'http://192.168.1.7:8001/';
 
   Future<ChatResponse> generateQuestion(String question, String history) async {
     final response = await http.post(

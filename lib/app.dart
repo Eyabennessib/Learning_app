@@ -65,7 +65,7 @@ class _MyApp extends State<MyApp>{
       supportedLocales: AppLocalizations.supportedLocales,
       locale: _locale,
       home: Scaffold(
-        body: AnalyzeAssessmentScreen() //    // StartAssesmentScreen() AuthCheck()  AssessmentScreen()
+        body: AuthCheck() // AnalyzeAssessmentScreen() //    // StartAssesmentScreen()   AssessmentScreen()
       ),
 
     );
