@@ -1,2 +1,2 @@
 # Nmimes_dev
-This is the developement branch of Nmimes
+This is the development branch of Nmimes
