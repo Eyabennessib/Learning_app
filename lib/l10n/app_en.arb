@@ -1,0 +1,10 @@
+{
+  "@@locale": "en",
+  "language": "English",
+  "@language": {
+    "description": "Selected Language"
+  },
+
+  "registerTitle": "Sign Up"
+
+}
