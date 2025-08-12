@@ -1,30 +1,45 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 
 import 'package:dummy_app/app.dart';
+import 'package:dummy_app/presentation/screens/auth/options/login_option_screen.dart';
+import 'package:dummy_app/presentation/screens/home_screen.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  setupFirebaseAuthMocks();
+
+  setUpAll(() async {
+    await Firebase.initializeApp();
+  });
+
+  testWidgets('shows loader then login when signed out', (WidgetTester tester) async {
+    final auth = FirebaseAuth.instance as MockFirebaseAuth;
+    await auth.signOut();
+
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Should show loading spinner while auth state is checked.
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    // After auth check completes, the login screen should appear.
     await tester.pump();
+    expect(find.byType(LoginOptionScreen), findsOneWidget);
+  });
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  testWidgets('shows loader then home when signed in', (WidgetTester tester) async {
+    final auth = FirebaseAuth.instance as MockFirebaseAuth;
+    await auth.signInAnonymously();
+
+    await tester.pumpWidget(const MyApp());
+
+    // Should show loading spinner while auth state is checked.
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+
+    // After auth check completes, the home screen should appear.
+    await tester.pump();
+    expect(find.byType(HomeScreen), findsOneWidget);
   });
 }
