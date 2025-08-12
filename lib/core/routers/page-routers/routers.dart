@@ -38,7 +38,6 @@ import 'package:dummy_app/presentation/screens/assessment/assessments/q9/assessm
 import 'package:dummy_app/presentation/screens/assessment/start_assesment.dart';
 import 'package:dummy_app/presentation/screens/auth/email/email_login_screen.dart';
 import 'package:dummy_app/presentation/screens/auth/email/email_register_screen.dart';
-import 'package:dummy_app/presentation/screens/home_screen.dart';
 import 'package:dummy_app/presentation/screens/auth/options/login_option_screen.dart';
 import 'package:dummy_app/presentation/screens/auth/phone/otp_screen.dart';
 import 'package:dummy_app/presentation/screens/auth/phone/phone_login_screen.dart';
@@ -50,12 +49,11 @@ import 'package:dummy_app/presentation/screens/user/dasboard/dashboard_screen.da
 import 'package:dummy_app/presentation/screens/user/profile/fill_profile_screen.dart';
 import 'package:dummy_app/presentation/screens/user/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:dummy_app/core/constants.dart';
 
 
-void goToHome(BuildContext context)=> Navigator.pushReplacement(
-  context,
-  MaterialPageRoute(builder: (_) => HomeScreen()),
-);
+void goToHome(BuildContext context) =>
+    Navigator.pushReplacementNamed(context, AppRoutes.home);
 
 void goToEmailLogin(context) => Navigator.pushReplacement(
   context,
