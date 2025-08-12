@@ -1,30 +1,52 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
+import 'package:dummy_app/app.dart';
+import 'package:dummy_app/presentation/screens/auth/options/login_option_screen.dart';
+import 'package:firebase_auth_platform_interface/firebase_auth_platform_interface.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_core_platform_interface/firebase_core_platform_interface.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:dummy_app/app.dart';
+/// Sets up the Firebase Auth and Core method channel mocks so that
+/// [Firebase.initializeApp] and [FirebaseAuth] can be used in tests without
+/// real platform channels.
+void setupFirebaseAuthMocks() {
+  TestWidgetsFlutterBinding.ensureInitialized();
 
-void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  MethodChannelFirebase.initializeApp = (String? app, Map<String, dynamic>? options) async {
+    return {'name': app ?? '[DEFAULT]', 'options': options ?? <String, dynamic>{}};
+  };
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  MethodChannelFirebaseAuth.channel.setMockMethodCallHandler((MethodCall call) async {
+    if (call.method == 'Auth#registerAuthStateListener' ||
+        call.method == 'Auth#registerIdTokenListener') {
+      return <String, dynamic>{};
+    }
+    return null;
   });
 }
+
+void main() {
+  setupFirebaseAuthMocks();
+
+  setUpAll(() async {
+    await Firebase.initializeApp();
+  });
+
+  testWidgets('shows loader then login screen when user is not authenticated',
+      (WidgetTester tester) async {
+    // Build our app and trigger the first frame where the auth state is still
+    // being checked.
+    await tester.pumpWidget(const MyApp());
+
+    // Expect a loading spinner while waiting for auth state.
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+
+    // Let the auth state stream emit its first value (no user signed in).
+    await tester.pump();
+
+    // The login screen should be displayed for an unauthenticated user.
+    expect(find.byType(LoginOptionScreen), findsOneWidget);
+  });
+}
+
