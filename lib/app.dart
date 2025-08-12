@@ -1,23 +1,14 @@
-import 'package:dummy_app/core/routers/page-routers/routers.dart';
-import 'package:dummy_app/core/services/local-storage/opened-page/local_storage.dart';
 import 'package:dummy_app/core/constants.dart';
-import 'package:dummy_app/presentation/screens/assessment/analyze_assessment.dart';
-import 'package:dummy_app/presentation/screens/assessment/assessments/q2/assessment_task_screen.dart';
-import 'package:dummy_app/presentation/screens/assessment/start_assesment.dart';
-import 'package:dummy_app/presentation/screens/home_screen.dart';
+import 'package:dummy_app/core/routers/route_persistence_observer.dart';
+import 'package:dummy_app/core/services/local-storage/opened-page/local_storage.dart';
 import 'package:dummy_app/presentation/screens/auth/options/login_option_screen.dart';
-import 'package:dummy_app/presentation/screens/user/profile/fill_profile_screen.dart';
+import 'package:dummy_app/presentation/screens/home_screen.dart';
+import 'package:dummy_app/presentation/screens/splash_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'presentation/screens/splash_screen.dart';
-import 'presentation/screens/auth/email/email_register_screen.dart';
-import 'presentation/screens/auth/email/email_login_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import '../../l10n/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
-import 'presentation/screens/auth/options/register_option_screen.dart';
+import '../../l10n/app_localizations.dart';
 
 class MyApp extends StatefulWidget{
   const MyApp({super.key});
@@ -51,13 +42,18 @@ class _MyApp extends State<MyApp>{
     });
   }
 
+  @override
+  void initState() {
+    super.initState();
+    _loadInitialRoute();
+  }
+
 
   @override
   Widget build(BuildContext context){
 
 
     return MaterialApp(
-
       theme: ThemeData(
         textTheme: GoogleFonts.dmSansTextTheme()
       ),
@@ -65,15 +61,19 @@ class _MyApp extends State<MyApp>{
       localizationsDelegates:  AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: _locale,
-      home: Scaffold(
-        body: AuthCheck() // AnalyzeAssessmentScreen() //    // StartAssesmentScreen()   AssessmentScreen()
-      ),
-
+      initialRoute: _initialRoute,
+      routes: {
+        AppRoutes.loading: (_) => const SplashScreen(),
+        AppRoutes.home: (_) => Scaffold(body: const AuthCheck()),
+      },
+      navigatorObservers: [RoutePersistenceObserver()],
     );
   }
 }
 
 class AuthCheck extends StatelessWidget {
+  const AuthCheck({super.key});
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<User?>(
