@@ -38,7 +38,7 @@ class StartAssesmentScreen extends StatelessWidget {
                 child: GestureDetector(
                   onTap: () => goToFillProfile(context),
                   child: Image.asset(
-                    'assets/images/back-btn.png',
+                    AppAssets.backButton,
                     width: 150,
                     height: 150,
                   ),
@@ -50,7 +50,7 @@ class StartAssesmentScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 15.0, right: 15.0),
                 margin: const EdgeInsets.only(top: 10.0),
                 alignment: Alignment.center,
-                child: SvgPicture.asset('assets/svgs/lets-start-message.svg',),
+                child: SvgPicture.asset(AppAssets.letsStartMessage,),
 
               ),
 
@@ -75,7 +75,7 @@ class StartAssesmentScreen extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 50.0),
                 alignment: Alignment.center,
                 child: Image.asset(
-                  'assets/mascot/mascot-transparent.png',
+                  AppAssets.mascotTransparent,
                   width: 150,
                   height: 150,
                 ),

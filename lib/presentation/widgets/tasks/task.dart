@@ -60,7 +60,7 @@ class WeeklyTaskList extends StatelessWidget {
 
 
                     Image.asset(
-                      task.done? "assets/icons/check.png": "assets/icons/dash.png",
+                      task.done ? AppAssets.iconCheck : AppAssets.iconDash,
 
                     )
                     

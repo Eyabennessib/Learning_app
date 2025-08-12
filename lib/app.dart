@@ -1,5 +1,6 @@
 import 'package:dummy_app/core/routers/page-routers/routers.dart';
 import 'package:dummy_app/core/services/local-storage/opened-page/local_storage.dart';
+import 'package:dummy_app/core/constants.dart';
 import 'package:dummy_app/presentation/screens/assessment/analyze_assessment.dart';
 import 'package:dummy_app/presentation/screens/assessment/assessments/q2/assessment_task_screen.dart';
 import 'package:dummy_app/presentation/screens/assessment/start_assesment.dart';
@@ -39,10 +40,10 @@ class _MyApp extends State<MyApp>{
     });
   }
 
-  String _initialRoute = '/loading';
+  String _initialRoute = AppRoutes.loading;
 
   Future<void> _loadInitialRoute() async {
-    final lastRoute = await getCurrentRoute() ?? '/home';
+    final lastRoute = await getCurrentRoute() ?? AppRoutes.home;
 
     if (!mounted) return; // prevent calling setState after dispose
     setState(() {

@@ -2,6 +2,7 @@ import 'package:dummy_app/core/routers/page-routers/routers.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/themes.dart';
+import 'package:dummy_app/core/constants.dart';
 
 class IntroScreen extends StatefulWidget{
   const IntroScreen({super.key});
@@ -39,7 +40,7 @@ class _IntroScreen extends State<IntroScreen>{
                     // padding: const EdgeInsets.only(left: 15.0, right: 15.0),
                     margin: const EdgeInsets.only(top: 80.0),
                     child: Image.asset(
-                      'assets/mascot/mascot-transparent.png',
+                      AppAssets.mascotTransparent,
                       width: MediaQuery.of(context).size.width * 0.1,  // 80% of screen width
                       height: MediaQuery.of(context).size.height * 0.1,
                     ),

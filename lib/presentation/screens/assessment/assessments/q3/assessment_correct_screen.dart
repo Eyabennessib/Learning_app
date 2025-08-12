@@ -59,7 +59,7 @@ class _A3CorrectScreen extends State<A3CorrectScreen>{
                   margin: const EdgeInsets.only(top: 50.0),
                   alignment: Alignment.center,
                   child: Image.asset(
-                    'assets/mascot/mascot-transparent.png',
+                    AppAssets.mascotTransparent,
                     width: 150,
                     height: 150,
                   ),

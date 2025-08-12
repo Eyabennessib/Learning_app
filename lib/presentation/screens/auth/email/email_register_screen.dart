@@ -368,7 +368,7 @@ class _EmailRegisterScreen extends State<EmailRegisterScreen> {
                             Container(
                               margin: EdgeInsets.only(left: 10.0),
                               child: Image.asset(
-                                "assets/images/ArrowRight-cutout.png",
+                                AppAssets.arrowRightCutout,
                               ),
                             ),
 

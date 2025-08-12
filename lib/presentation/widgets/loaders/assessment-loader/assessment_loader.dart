@@ -31,7 +31,7 @@ class AssessmentLoader  extends StatelessWidget {
               )),
         ),
         Image.asset(
-          'assets/mascot/mascot-transparent.png', // replace with your asset path
+          AppAssets.mascotTransparent,
           width: 100,
           height: 100,
           fit: BoxFit.contain,

@@ -16,7 +16,7 @@ class AssessmentErrorWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            'assets/images/error.png', // replace with your asset path
+            AppAssets.error,
             width: 100,
             height: 100,
             fit: BoxFit.contain,

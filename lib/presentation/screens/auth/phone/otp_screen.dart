@@ -66,7 +66,7 @@ class _OtpScreen extends State<OtpScreen> {
                 child: GestureDetector(
                 onTap: () => Navigator.pop(context),
                 child: Image.asset(
-                  'assets/images/back-btn.png',
+                  AppAssets.backButton,
                   width: 150,
                   height: 150,
                 ),
