@@ -94,7 +94,7 @@ class _A10CorrectScreen extends State<A10CorrectScreen>{
                       margin: const EdgeInsets.only(top: 50.0),
                       alignment: Alignment.center,
                       child: Image.asset(
-                        'assets/mascot/mascot-transparent.png',
+                        AppAssets.mascotTransparent,
                         width: 250,
                         height: 250,
                       ),

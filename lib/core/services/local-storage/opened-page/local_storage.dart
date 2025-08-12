@@ -1,4 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:dummy_app/core/constants.dart';
 
 Future<void> saveCurrentRoute(String route) async {
   final prefs = await SharedPreferences.getInstance();
@@ -7,6 +8,6 @@ Future<void> saveCurrentRoute(String route) async {
 
 Future<String> getCurrentRoute() async {
   final prefs = await SharedPreferences.getInstance();
-  final lastRoute = prefs.getString('last_route') ?? '/home';
+  final lastRoute = prefs.getString('last_route') ?? AppRoutes.home;
   return lastRoute;
 }

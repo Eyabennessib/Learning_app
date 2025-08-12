@@ -39,7 +39,7 @@ class NavigationBarDrawer extends StatelessWidget {
                     ),
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      image: AssetImage('assets/mascot.png'),
+                      image: AssetImage(AppAssets.mascot),
                       fit: BoxFit.cover, // Adjust the fit as needed
                     ),
                   ),

@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'home_screen.dart';
 import 'auth/email/email_login_screen.dart';
 import 'auth/email/email_register_screen.dart';
+import 'package:dummy_app/core/constants.dart';
 
 class SplashScreen extends StatefulWidget{
   const SplashScreen({super.key});
@@ -47,7 +48,7 @@ class _SplashScreen extends State<SplashScreen> with SingleTickerProviderStateMi
             children: [
               Container(
                 child: Image.asset(
-                  'assets/mascot-transparent.png',
+                  AppAssets.mascotTransparent,
                   width: MediaQuery.of(context).size.width * 0.7,  // 80% of screen width
                   height: MediaQuery.of(context).size.height * 0.3,
                 ),

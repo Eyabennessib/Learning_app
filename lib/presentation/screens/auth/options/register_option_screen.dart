@@ -64,7 +64,7 @@ class RegisterOptionScreen extends StatelessWidget{
                       child: Stack(
                         children: [
                           SvgPicture.asset(
-                            'assets/svgs/email-option.svg',
+                            AppAssets.emailOption,
                             height: 170,
                             width: 170,
                           ),
@@ -85,7 +85,7 @@ class RegisterOptionScreen extends StatelessWidget{
 
 
                     Image.asset(
-                      'assets/mascot/mascot-transparent.png',
+                      AppAssets.mascotTransparent,
                       width: 70,  // 80% of screen width
                       height: 70,
                     ),
@@ -99,7 +99,7 @@ class RegisterOptionScreen extends StatelessWidget{
                       child: Stack(
                         children: [
                           SvgPicture.asset(
-                            'assets/svgs/phone-option.svg',
+                            AppAssets.phoneOption,
                             height: 170,
                             width: 170,
                           ),

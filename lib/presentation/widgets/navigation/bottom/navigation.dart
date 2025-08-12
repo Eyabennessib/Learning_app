@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dummy_app/core/constants.dart';
 
 class BottomNavigator extends StatelessWidget {
   final int currentIndex;
@@ -19,27 +20,27 @@ class BottomNavigator extends StatelessWidget {
       unselectedItemColor: Colors.grey,
       items: [
         BottomNavigationBarItem(
-          icon:  Image.asset("assets/icons/home.png"),
+          icon:  Image.asset(AppAssets.iconHome),
           label: "",
         ),
 
         BottomNavigationBarItem(
-          icon:  Image.asset("assets/icons/map.png"),
+          icon:  Image.asset(AppAssets.iconMap),
           label: "",
         ),
 
         BottomNavigationBarItem(
-          icon:  Image.asset("assets/icons/dumble.png"),
+          icon:  Image.asset(AppAssets.iconDumble),
           label: "",
         ),
 
         BottomNavigationBarItem(
-          icon:  Image.asset("assets/icons/position.png"),
+          icon:  Image.asset(AppAssets.iconPosition),
           label: "",
         ),
 
         BottomNavigationBarItem(
-          icon:  Image.asset("assets/icons/bars.png"),
+          icon:  Image.asset(AppAssets.iconBars),
           label: "",
         ),
       ],

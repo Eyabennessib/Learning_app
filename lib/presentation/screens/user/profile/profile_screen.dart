@@ -88,7 +88,7 @@ class _ProfileScreen extends State<ProfileScreen>{
                             ),
                             shape: BoxShape.circle,
                             image: DecorationImage(
-                              image: AssetImage('assets/mascot.png'),
+                              image: AssetImage(AppAssets.mascot),
                               fit: BoxFit.contain, // Adjust the fit as needed
                             ),
                           ),
